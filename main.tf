@@ -59,7 +59,7 @@ resource "tls_private_key" "bootstrap_private_key" {
 resource "local_file" "bootstrap_private_key" {
   content         = tls_private_key.bootstrap_private_key.private_key_pem
   filename        = "bootstrap_private_key.pem"
-  file_permission = "0500"
+  file_permission = "0600"
 }
 
 module "rke-control" {
@@ -105,6 +105,6 @@ locals {
 }
 
 resource "local_file" "clusteryml" {
-  content  = templatefile("cluster.yml.tpl", { nodes = local.nodes, kubernetes_version = var.kubernetes_version })
+  content  = templatefile("cluster.yml.tpl", { nodes = local.nodes, kubernetes_version = var.kubernetes_version, cluster_name = var.cluster_name })
   filename = "cluster.yml"
 }

@@ -1,5 +1,5 @@
-cluster_name: awsnetes
-ssh_agent_auth: true
+cluster_name: ${cluster_name}
+ssh_key_path: ./bootstrap_private_key.pem
 
 ignore_docker_version: true
 nodes:

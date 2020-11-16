@@ -46,3 +46,7 @@ variable "kubernetes_version" {
   default = "v1.19.2-rancher1-1"
 }
 
+variable "cluster_name" {
+  default = "azurenetes"
+}
+
