@@ -1,0 +1,10 @@
+terraform.tfvars
+terraform.tfstate*
+*.out
+*/.terraform.tfstate.*
+.terraform
+.terraform/plugins/*
+*.yml
+*.backup
+*.pem
+
