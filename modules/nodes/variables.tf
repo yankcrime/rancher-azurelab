@@ -6,6 +6,10 @@ variable "num" {
   default = 0
 }
 
+variable "owner" {
+  default = ""
+}
+
 variable "resource_group_name" {
   default = "kubernetes"
 }

@@ -1,5 +1,6 @@
 terraform.tfvars
 terraform.tfstate*
+*.rkestate
 *.out
 */.terraform.tfstate.*
 .terraform

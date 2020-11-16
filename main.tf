@@ -74,6 +74,7 @@ module "rke-control" {
   resource_group_name = azurerm_resource_group.resource_group.name
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
+  owner               = var.engineer
 
 }
 
@@ -89,6 +90,7 @@ module "rke-worker" {
   resource_group_name = azurerm_resource_group.resource_group.name
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
+  owner               = var.engineer
 
 }
 
