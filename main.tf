@@ -14,8 +14,7 @@ module "vnet-main" {
   nsg_ids             = {}
 
   tags = {
-    engineer = var.engineer
-
+    Owner = var.engineer
   }
 }
 
@@ -37,8 +36,7 @@ resource "azurerm_network_security_group" "rke_nsg" {
   }
 
   tags = {
-    engineer = var.engineer
-
+    Owner = var.engineer
   }
 }
 
@@ -75,7 +73,6 @@ module "rke-control" {
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
   owner               = var.engineer
-
 }
 
 module "rke-worker" {
@@ -91,7 +88,6 @@ module "rke-worker" {
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
   owner               = var.engineer
-
 }
 
 locals {
