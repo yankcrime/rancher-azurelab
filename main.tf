@@ -101,6 +101,7 @@ locals {
 }
 
 resource "local_file" "clusteryml" {
-  content  = templatefile("cluster.yml.tpl", { nodes = local.nodes, kubernetes_version = var.kubernetes_version, cluster_name = var.cluster_name })
-  filename = "cluster.yml"
+  content         = templatefile("cluster.yml.tpl", { nodes = local.nodes, kubernetes_version = var.kubernetes_version, cluster_name = var.cluster_name })
+  filename        = "cluster.yml"
+  file_permission = "0600"
 }
