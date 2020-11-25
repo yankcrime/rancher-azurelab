@@ -96,6 +96,7 @@ locals {
       public_ip  = instance.public_ip
       private_ip = instance.private_ip
       roles      = instance.roles
+      name       = instance.name
     }
   ]
 }
