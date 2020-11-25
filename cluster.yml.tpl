@@ -6,6 +6,7 @@ nodes:
 %{ for k, v in nodes ~}
     - address: ${nodes[k].public_ip}
       internal_address: ${nodes[k].private_ip}
+      hostname_override: ${nodes[k].name}
       user: azureuser
       role:
 %{ for role in nodes[k].roles ~}
