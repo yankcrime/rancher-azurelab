@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  default = "nj-tf-rancher-ha"
+  default = "azurelab"
 }
 
 variable "location" {
@@ -15,11 +15,11 @@ variable "subnet_prefixes" {
 }
 
 variable "subnet_names" {
-  default = ["nj-default-subnet"]
+  default = ["azurelab"]
 }
 
 variable "avset_name" {
-  default = "nj-rancher-avset"
+  default = "azurelab"
 }
 
 variable "num_control" {
@@ -39,7 +39,7 @@ variable "prefix" {
 
 variable "engineer" {
   description = "Responsible engineer's name"
-  default     = ""
+  default     = "cowmeleon"
 }
 
 variable "kubernetes_version" {
