@@ -44,7 +44,7 @@ resource "azurerm_availability_set" "avset" {
   name                         = var.avset_name
   location                     = var.location
   resource_group_name          = azurerm_resource_group.resource_group.name
-  platform_fault_domain_count  = 3
+  platform_fault_domain_count  = 2
   platform_update_domain_count = 3
   managed                      = true
 }
@@ -72,6 +72,7 @@ module "rke-control" {
   resource_group_name = azurerm_resource_group.resource_group.name
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
+  location            = var.location
   owner               = var.engineer
 }
 

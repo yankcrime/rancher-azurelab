@@ -39,7 +39,7 @@ variable "public_key" {
 }
 
 variable "location" {
-  default = "northeurope"
+  default = "ukwest"
 }
 
 variable "roles" {
