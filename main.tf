@@ -19,7 +19,7 @@ module "vnet-main" {
 }
 
 resource "azurerm_network_security_group" "rke_nsg" {
-  name                = "rke_nsg_allow_all"
+  name                = var.nsg_name
   location            = azurerm_resource_group.resource_group.location
   resource_group_name = azurerm_resource_group.resource_group.name
 

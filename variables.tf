@@ -22,6 +22,10 @@ variable "avset_name" {
   default = "azurelab"
 }
 
+variable "nsg_name" {
+  default = "azurelab"
+}
+
 variable "num_control" {
   description = "Control nodes count"
   default     = 1
