@@ -3,7 +3,7 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  default = "northeurope"
+  default = "ukwest"
 }
 
 variable "vnet_cidr_range" {
