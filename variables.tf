@@ -36,6 +36,11 @@ variable "num_worker" {
   default     = 1
 }
 
+variable "num_all" {
+  description = "All-in-one nodes count"
+  default     = 0
+}
+
 variable "prefix" {
   description = "Prefix added to names of all resources"
   default     = "rke"

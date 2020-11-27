@@ -88,12 +88,29 @@ module "rke-worker" {
   resource_group_name = azurerm_resource_group.resource_group.name
   public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
   private_key         = tls_private_key.bootstrap_private_key.private_key_pem
+  location            = var.location
+  owner               = var.engineer
+}
+
+module "rke-all" {
+  source = "./modules/nodes"
+
+  num                 = var.num_all
+  name                = "allinone"
+  roles               = "controlplane,etcd,worker"
+  subnet_id           = module.vnet-main.vnet_subnets[0]
+  security_group_id   = azurerm_network_security_group.rke_nsg.id
+  availability_set_id = azurerm_availability_set.avset.id
+  resource_group_name = azurerm_resource_group.resource_group.name
+  public_key          = tls_private_key.bootstrap_private_key.public_key_openssh
+  private_key         = tls_private_key.bootstrap_private_key.private_key_pem
+  location            = var.location
   owner               = var.engineer
 }
 
 locals {
   nodes = [
-    for instance in flatten([[module.rke-control.nodes], [module.rke-worker.nodes]]) : {
+    for instance in flatten([[module.rke-control.nodes], [module.rke-worker.nodes], [module.rke-all.nodes]]) : {
       public_ip  = instance.public_ip
       private_ip = instance.private_ip
       roles      = instance.roles

@@ -5,3 +5,7 @@ output "control_nodes" {
 output "worker_nodes" {
   value = module.rke-worker.nodes
 }
+
+output "all_nodes" {
+  value = module.rke-all.nodes
+}
